@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Container, Box, Badge } from '@chakra-ui/react'
+import { Flex, Box, Badge } from '@chakra-ui/react'
 import { BiStar } from "react-icons/bi";
+import { Card } from '../components/Card';
 
 const Home: NextPage = () => {
   const property = {
@@ -23,21 +24,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container maxW='2xl' centerContent>
-        <Box padding='4' maxW='md'>
-          There are many benefits to a joint design and development system. Not only
-          does it bring benefits to the design team, but it also brings benefits to
-          engineering teams. It makes sure that our experiences have a consistent look
-          and feel, not just in our design specs, but in production.
-        </Box>
-
-
-
-
-        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+      <Flex flexDirection='column' alignItems='center' gap='2' mt='4'>
+        <Card>
           <img src={property.imageUrl} alt={property.imageAlt} />
 
           <Box p='6'>
+
             <Box display='flex' alignItems='baseline'>
               <Badge borderRadius='full' px='2' colorScheme='teal'>
                 New
@@ -84,9 +76,13 @@ const Home: NextPage = () => {
                 {property.reviewCount} reviews
               </Box>
             </Box>
+
           </Box>
-        </Box>
-      </Container>
+
+        </Card>
+
+
+      </Flex>
 
     </div>
   );
