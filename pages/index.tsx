@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Flex, Box, Badge } from '@chakra-ui/react'
+import { Flex, Box, Badge, Button } from '@chakra-ui/react';
 import { BiStar } from "react-icons/bi";
 import { Card } from '../components/Card';
 
@@ -14,6 +14,12 @@ const Home: NextPage = () => {
     formattedPrice: '$1,900.00',
     reviewCount: 34,
     rating: 4,
+  }
+
+  const handleTest = () => {
+    fetch('http://192.168.56.227:3000/api/hello')
+    .then(response => response.json())
+    .then(data => console.log(data));
   }
 
   return (
@@ -78,6 +84,7 @@ const Home: NextPage = () => {
             </Box>
 
           </Box>
+          <Button onClick={handleTest}>Test</Button>
 
         </Card>
 
